@@ -41,6 +41,7 @@ public class City implements Serializable{
 	}
 
 	/**
+	 * Returns the city name
 	 * 
 	 * @return
 	 */
@@ -49,6 +50,7 @@ public class City implements Serializable{
 	}
 
 	/**
+	 * Sets the city name
 	 * 
 	 * @param name
 	 */
@@ -57,6 +59,7 @@ public class City implements Serializable{
 	}
 
 	/**
+	 * Returns the city neighbors
 	 * 
 	 * @return
 	 */
@@ -65,6 +68,7 @@ public class City implements Serializable{
 	}
 
 	/**
+	 * Sets the city neighbors
 	 * 
 	 * @param neighbors
 	 */
@@ -73,6 +77,7 @@ public class City implements Serializable{
 	}
 	
 	/**
+	 * Adds a neighbor to the city
 	 * 
 	 * @param city
 	 */
@@ -81,7 +86,7 @@ public class City implements Serializable{
 	}
 	
 	/**
-	 * @return the visited
+	 * @return
 	 */
 	public boolean isVisited() {
 		return visited;

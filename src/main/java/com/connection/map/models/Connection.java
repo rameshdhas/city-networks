@@ -45,6 +45,7 @@ public class Connection implements Serializable{
 	}
 	
 	/**
+	 * Returns the origin city
 	 * 
 	 * @return
 	 */
@@ -53,6 +54,7 @@ public class Connection implements Serializable{
 	}
 
 	/**
+	 * Sets the origin city
 	 * 
 	 * @param origin
 	 */
@@ -61,6 +63,7 @@ public class Connection implements Serializable{
 	}
 
 	/**
+	 * Returns the destination city
 	 * 
 	 * @return
 	 */
@@ -69,6 +72,7 @@ public class Connection implements Serializable{
 	}
 
 	/**
+	 * Sets the destination city
 	 * 
 	 * @param destination
 	 */
@@ -77,6 +81,7 @@ public class Connection implements Serializable{
 	}
 
 	/**
+	 * Returns the distance between cities
 	 * 
 	 * @return
 	 */
@@ -85,6 +90,7 @@ public class Connection implements Serializable{
 	}
 
 	/**
+	 * Set the distance between cities
 	 * 
 	 * @param distance
 	 */
@@ -93,6 +99,7 @@ public class Connection implements Serializable{
 	}
 
 	/**
+	 * Returns the mode of connection
 	 * 
 	 * @return
 	 */
@@ -101,6 +108,7 @@ public class Connection implements Serializable{
 	}
 
 	/**
+	 * Sets the mode of connection
 	 * 
 	 * @param mode
 	 */
