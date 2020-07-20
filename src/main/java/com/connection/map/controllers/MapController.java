@@ -15,8 +15,8 @@
  */
 package com.connection.map.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -55,11 +55,11 @@ public class MapController {
 	/**
 	 * Rest end-point which returns a list of supported city names.
 	 * 
-	 * @return List<String>
+	 * @return Set<String>
 	 */
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public List<String> listAll() {
-		List<String> cities = new ArrayList<String>();
+	public Set<String> listAll() {
+		Set<String> cities = new HashSet<String>();
 		if(log.isDebugEnabled()) {
 			log.debug("Entering listAll");
 		}
