@@ -104,7 +104,7 @@ public class MapService {
 
             while (!citiesToVisit.isEmpty() && !isConnected) {
                 String city = citiesToVisit.poll();
-                isConnected = city.equals(destination);
+                isConnected = city.equalsIgnoreCase(destination);
                 
                 Set<String> neighbors = highwayMap.get(city);
 
