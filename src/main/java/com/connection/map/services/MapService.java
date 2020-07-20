@@ -53,17 +53,17 @@ import com.connection.map.models.Connection;
 
 @Service
 public class MapService {
-	
+
 	private Logger log = LoggerFactory.getLogger(MapService.class);
-	
+
 	@Autowired
 	private ResourceLoader resourceLoader;
 
 	@Value("${data.file.path}")
 	private String dataFile;
-	
+
 	private List<City> cities = new ArrayList<City>();
-	
+
 	private List<Connection> connections = new ArrayList<Connection>();
 
 	private Map<String, Set<String>> connectionsMap = new HashMap<String, Set<String>>();
@@ -71,7 +71,7 @@ public class MapService {
 	public void addCity(City city) {
 		this.cities.add(city);
 	}
-	
+
 	/**
 	 * 
 	 * @param source
@@ -83,8 +83,7 @@ public class MapService {
 		source.addNeighbor(destination);
 		this.connections.add(connection);
 	}
-	
-	
+
 	/**
 	 * @param source
 	 * @param destination
@@ -98,8 +97,7 @@ public class MapService {
 		}
 		return 0;
 	}
-	
-	
+
 	/**
 	 * Breath first search algorithm to find out if two cities are connected.
 	 * 
@@ -107,112 +105,108 @@ public class MapService {
 	 * @param destination
 	 * @return
 	 */
-	public boolean isConnected(String origin, String destination){
-		if(log.isDebugEnabled()) {
+	public boolean isConnected(String origin, String destination) {
+		if (log.isDebugEnabled()) {
 			log.debug("Entering isConnected");
 		}
-		log.info("Input params : origin = "+ origin + ", destination = "+ destination);
-		
+		log.info("Input params : origin = " + origin + ", destination = " + destination);
+
 		boolean isConnected = false;
 
-        if(connectionsMap.containsKey(origin) && connectionsMap.containsKey(destination)){
-            Set<String> citiesVisited = new HashSet<>();
-            Queue<String> citiesToVisit = new LinkedList<>();
-            citiesToVisit.add(origin);
+		if (connectionsMap.containsKey(origin) && connectionsMap.containsKey(destination)) {
+			Set<String> citiesVisited = new HashSet<>();
+			Queue<String> citiesToVisit = new LinkedList<>();
+			citiesToVisit.add(origin);
 
-            while (!citiesToVisit.isEmpty() && !isConnected) {
-                String city = citiesToVisit.poll();
-                isConnected = city.equalsIgnoreCase(destination);
-                
-                Set<String> neighbors = connectionsMap.get(city);
+			while (!citiesToVisit.isEmpty() && !isConnected) {
+				String city = citiesToVisit.poll();
+				isConnected = city.equalsIgnoreCase(destination);
 
-                for (String neighbor : neighbors) {
-                    if (!citiesVisited.contains(neighbor)) {
-                        citiesToVisit.add(neighbor);
-                        citiesVisited.add(neighbor);
-                    }
-                }
-            }
-        }
-        log.info("isConnected : " + isConnected);
-        
-        if(log.isDebugEnabled()) {
+				Set<String> neighbors = connectionsMap.get(city);
+
+				for (String neighbor : neighbors) {
+					if (!citiesVisited.contains(neighbor)) {
+						citiesToVisit.add(neighbor);
+						citiesVisited.add(neighbor);
+					}
+				}
+			}
+		}
+		log.info("isConnected : " + isConnected);
+
+		if (log.isDebugEnabled()) {
 			log.debug("Exiting isConnected");
 		}
-        return isConnected;
-    }
-	
-	
+		return isConnected;
+	}
+
 	@PostConstruct
 	public void loadData() {
-		if(log.isDebugEnabled()) {
+		if (log.isDebugEnabled()) {
 			log.debug("Entering loadData");
 		}
 		InputStream inputStream = null;
-		BufferedReader reader =  null;
+		BufferedReader reader = null;
 		try {
-			log.info("Loading data from "+ dataFile); 
+			log.info("Loading data from " + dataFile);
 			Resource resource = resourceLoader.getResource(dataFile);
 			inputStream = resource.getInputStream();
-			reader =  new BufferedReader(new InputStreamReader(inputStream));
-		    
+			reader = new BufferedReader(new InputStreamReader(inputStream));
+
 			String line = null;
-	        while((line = reader.readLine()) != null){
-	        	String[] cities = line.split(COMMA);
-	            String firstCity = cities[0].trim();
-	            String secondCity = cities[1].trim();
+			while ((line = reader.readLine()) != null) {
+				String[] cities = line.split(COMMA);
+				String firstCity = cities[0].trim();
+				String secondCity = cities[1].trim();
 
-	            if(!connectionsMap.containsKey(firstCity))
-	            	connectionsMap.put(firstCity, new HashSet<String>());
+				if (!connectionsMap.containsKey(firstCity))
+					connectionsMap.put(firstCity, new HashSet<String>());
 
-	            if(!connectionsMap.containsKey(secondCity))
-	            	connectionsMap.put(secondCity, new HashSet<String>());
+				if (!connectionsMap.containsKey(secondCity))
+					connectionsMap.put(secondCity, new HashSet<String>());
 
-	            connectionsMap.get(firstCity).add(secondCity);
-	            connectionsMap.get(secondCity).add(firstCity);
-	        }
-	        
-	        log.info("Total cities loaded : "+ connectionsMap.size());
-		}
-		catch(Exception e) {
-			log.error("Error in loading data : "+ e.getMessage());
-		}
-		finally {
+				connectionsMap.get(firstCity).add(secondCity);
+				connectionsMap.get(secondCity).add(firstCity);
+			}
+
+			log.info("Total cities loaded : " + connectionsMap.size());
+		} catch (Exception e) {
+			log.error("Error in loading data : " + e.getMessage());
+		} finally {
 			try {
-				if(reader != null) {
+				if (reader != null) {
 					reader.close();
 				}
-				if(inputStream != null) {
+				if (inputStream != null) {
 					inputStream.close();
 				}
-				
+
 			} catch (IOException e) {
-				log.error("Error in closing stream : "+ e.getMessage());
+				log.error("Error in closing stream : " + e.getMessage());
 			}
 		}
-		if(log.isDebugEnabled()) {
+		if (log.isDebugEnabled()) {
 			log.debug("Exiting loadData");
 		}
 	}
-	
-	
+
 	/**
 	 * Returns a set of supported city names.
 	 * 
 	 * @return Set<String>
 	 */
-	public Set<String> getAllCities(){
+	public Set<String> getAllCities() {
 		Set<String> cities = new HashSet<String>();
-		if(log.isDebugEnabled()) {
+		if (log.isDebugEnabled()) {
 			log.debug("Entering isConnected");
 		}
-		if(connectionsMap.size() > 0) {
+		if (connectionsMap.size() > 0) {
 			cities = connectionsMap.keySet();
 		}
-		if(log.isDebugEnabled()) {
+		if (log.isDebugEnabled()) {
 			log.debug("Exiting isConnected");
 		}
 		return cities;
 	}
-	
+
 }
