@@ -149,7 +149,7 @@ public class MapService {
 		BufferedReader reader = null;
 		try {
 			log.info("Loading data from " + dataFile);
-			Resource resource = resourceLoader.getResource(dataFile);
+			Resource resource = resourceLoader.getResource("classpath:".concat(dataFile));
 			inputStream = resource.getInputStream();
 			reader = new BufferedReader(new InputStreamReader(inputStream));
 

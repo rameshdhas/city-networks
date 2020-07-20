@@ -19,7 +19,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 
-import com.connection.map.config.MapConfig;
+import com.connection.map.config.ApplicationConfig;
 
 /**
  * Class that can be used to bootstrap and launch a Spring application from a
@@ -29,7 +29,7 @@ import com.connection.map.config.MapConfig;
  * @since 1.0.0
  */
 @SpringBootApplication
-@Import({ MapConfig.class })
+@Import({ ApplicationConfig.class })
 public class MapSpringApplication {
 
 	/**
