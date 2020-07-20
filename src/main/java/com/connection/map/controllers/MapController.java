@@ -73,9 +73,9 @@ public class MapController {
 	 * Rest end-point which returns a boolean value whether the origin and the
 	 * destination cities are connected.
 	 *
-	 * @param origin
-	 * @param destination
-	 * @return boolean
+	 * @param origin - origin city name
+	 * @param destination - destination city name
+	 * @return boolean if they both are connected or not
 	 */
 	@RequestMapping(value = "/connected", method = RequestMethod.GET)
 	public ResponseEntity<String> isConnected(@RequestParam(name = "origin") String origin,
