@@ -22,14 +22,14 @@ import org.springframework.context.annotation.Import;
 import com.connection.map.config.MapConfig;
 
 /**
- * Class that can be used to bootstrap and launch a Spring application from a Java main
- * method.
+ * Class that can be used to bootstrap and launch a Spring application from a
+ * Java main method.
  *
  * @author Ramesh Dhason
  * @since 1.0.0
  */
 @SpringBootApplication
-@Import({MapConfig.class})
+@Import({ MapConfig.class })
 public class MapSpringApplication {
 
 	/**
