@@ -15,8 +15,11 @@
  */
 package com.connection.map.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 import com.connection.map.controllers.MapController;
 import com.connection.map.services.MapService;
@@ -31,6 +34,12 @@ import com.connection.map.services.MapService;
 
 @Configuration
 @Import({SwaggerConfig.class, MapController.class, MapService.class})
+@PropertySource("classpath:application.properties")
 public class MapConfig {
 
+	@Bean
+    public static PropertySourcesPlaceholderConfigurer propertyConfigurer() {
+       return new PropertySourcesPlaceholderConfigurer();
+    }
+	
 }

@@ -22,6 +22,6 @@ package com.connection.map.constants;
  */
 public interface MapConstants {
 
-	public String DATA_FILE = "data.txt";
+	public String COMMA = ",";
 	
 }
