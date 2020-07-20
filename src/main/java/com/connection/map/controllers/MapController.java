@@ -33,10 +33,9 @@ import com.connection.map.services.MapService;
 
 import io.swagger.annotations.Api;
 
-
 /**
  * Rest controller class that can be used to expose the rest API methods.
- * Contains the methods to check two cities are connected. 
+ * Contains the methods to check two cities are connected.
  *
  * @author Ramesh Dhason
  * @since 1.0.0
@@ -47,11 +46,10 @@ import io.swagger.annotations.Api;
 public class MapController {
 
 	private Logger log = LoggerFactory.getLogger(MapController.class);
-	
+
 	@Autowired
 	private MapService mapService;
 
-	
 	/**
 	 * Rest end-point which returns a list of supported city names.
 	 * 
@@ -60,40 +58,39 @@ public class MapController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public Set<String> listAll() {
 		Set<String> cities = new HashSet<String>();
-		if(log.isDebugEnabled()) {
+		if (log.isDebugEnabled()) {
 			log.debug("Entering listAll");
 		}
 		cities = mapService.getAllCities();
-		
-		if(log.isDebugEnabled()) {
+
+		if (log.isDebugEnabled()) {
 			log.debug("Exiting listAll");
 		}
 		return cities;
 	}
 
-	
 	/**
-	 * Rest end-point which returns a boolean value whether the origin and the destination
-	 * cities are connected.  
+	 * Rest end-point which returns a boolean value whether the origin and the
+	 * destination cities are connected.
 	 *
 	 * @param origin
 	 * @param destination
 	 * @return boolean
 	 */
 	@RequestMapping(value = "/connected", method = RequestMethod.GET)
-	public ResponseEntity<String> isConnected(@RequestParam(name = "origin") String origin, @RequestParam(name = "destination") String destination) {
-		if(log.isDebugEnabled()) {
+	public ResponseEntity<String> isConnected(@RequestParam(name = "origin") String origin,
+			@RequestParam(name = "destination") String destination) {
+		if (log.isDebugEnabled()) {
 			log.debug("Entering isConnected");
 		}
 		boolean isConnected = false;
-		if(!StringUtils.isEmpty(origin) && !StringUtils.isEmpty(destination)) {
+		if (!StringUtils.isEmpty(origin) && !StringUtils.isEmpty(destination)) {
 			isConnected = mapService.isConnected(origin, destination);
-		}
-		else {
+		} else {
 			log.error("Invalid input params!");
 			return new ResponseEntity<String>("", HttpStatus.BAD_REQUEST);
 		}
-		if(log.isDebugEnabled()) {
+		if (log.isDebugEnabled()) {
 			log.debug("Exiting isConnected");
 		}
 		return new ResponseEntity<String>(String.valueOf(isConnected), HttpStatus.OK);

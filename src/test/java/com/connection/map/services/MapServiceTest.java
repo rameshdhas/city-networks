@@ -15,7 +15,6 @@
  */
 package com.connection.map.services;
 
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -28,7 +27,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.connection.map.config.ApplicationConfig;
 
-
 /**
  * JUnit test cases class that can be used to test the Spring application.
  *
@@ -38,12 +36,12 @@ import com.connection.map.config.ApplicationConfig;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-@ContextConfiguration(classes = {ApplicationConfig.class})
+@ContextConfiguration(classes = { ApplicationConfig.class })
 public class MapServiceTest {
 
 	@Autowired
 	private MapService mapService;
-	
+
 	@Test
 	public void testLoadData() {
 		mapService.loadData();
@@ -54,13 +52,13 @@ public class MapServiceTest {
 		boolean isConnected = mapService.isConnected(null, null);
 		assertFalse(isConnected);
 	}
-	
+
 	@Test
 	public void testIsConnectedBlank() {
 		boolean isConnected = mapService.isConnected("", "");
 		assertFalse(isConnected);
 	}
-	
+
 	@Test
 	public void testIsConnectedValid() {
 		boolean isConnected = mapService.isConnected("Boston", "New York");

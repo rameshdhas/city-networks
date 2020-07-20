@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 package com.connection.map.constants;
+
 /**
  * Interface which holds all the needed constants for the application.
  *
@@ -23,5 +24,5 @@ package com.connection.map.constants;
 public interface MapConstants {
 
 	public String COMMA = ",";
-	
+
 }

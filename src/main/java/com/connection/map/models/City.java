@@ -21,19 +21,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Java bean to hold the city information and its neighbors. 
+ * Java bean to hold the city information and its neighbors.
  *
  * @author Ramesh Dhason
  * @since 1.0.0
  */
-public class City implements Serializable{
-	
+public class City implements Serializable {
+
 	private static final long serialVersionUID = 1972960711641432890L;
 
 	private String name;
-	
+
 	private boolean visited;
-	
+
 	private Set<City> neighbors = new HashSet<City>();
 
 	public City(String name) {
@@ -75,7 +75,7 @@ public class City implements Serializable{
 	public void setNeighbors(Set<City> neighbors) {
 		this.neighbors = neighbors;
 	}
-	
+
 	/**
 	 * Adds a neighbor to the city
 	 * 
@@ -84,7 +84,7 @@ public class City implements Serializable{
 	public void addNeighbor(City city) {
 		this.neighbors.add(city);
 	}
-	
+
 	/**
 	 * @return
 	 */
@@ -112,13 +112,12 @@ public class City implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		
+
 		City other = (City) obj;
 		if (this.name == null) {
 			if (other.getName() != null)
 				return false;
-		} 
-		else if(!this.name.trim().equals(other.getName().trim())) {
+		} else if (!this.name.trim().equals(other.getName().trim())) {
 			return false;
 		}
 		return true;

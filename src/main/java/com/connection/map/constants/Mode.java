@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 package com.connection.map.constants;
+
 /**
  * Enum which holds all the modes of connection between cities.
  *
@@ -24,5 +25,5 @@ package com.connection.map.constants;
 public enum Mode {
 
 	Road, Rail, Air
-	
+
 }

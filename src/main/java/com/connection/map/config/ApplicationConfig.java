@@ -23,17 +23,16 @@ import com.connection.map.controllers.MapController;
 import com.connection.map.services.MapService;
 
 /**
- * Configuration Class that can be used configure the spring application, such as component scan or import other needed
- * spring beans and configurations.
+ * Configuration Class that can be used configure the spring application, such
+ * as component scan or import other needed spring beans and configurations.
  *
  * @author Ramesh Dhason
  * @since 1.0.0
  */
 
 @Configuration
-@Import({SwaggerConfig.class, MapController.class, MapService.class})
+@Import({ SwaggerConfig.class, MapController.class, MapService.class })
 @PropertySource("classpath:application.properties")
 public class ApplicationConfig {
 
-	
 }

@@ -25,16 +25,16 @@ import com.connection.map.constants.Mode;
  * @author Ramesh Dhason
  * @since 1.0.0
  */
-public class Connection implements Serializable{
-	
+public class Connection implements Serializable {
+
 	private static final long serialVersionUID = -2385027490039858672L;
 
 	private City origin;
-	
+
 	private City destination;
-	
+
 	private Mode mode;
-	
+
 	private int distance;
 
 	public Connection(City origin, City destination, Mode mode, int distance) {
@@ -43,7 +43,7 @@ public class Connection implements Serializable{
 		this.distance = distance;
 		this.mode = mode;
 	}
-	
+
 	/**
 	 * Returns the origin city
 	 * 
