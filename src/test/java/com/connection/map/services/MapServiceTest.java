@@ -60,8 +60,32 @@ public class MapServiceTest {
 	}
 
 	@Test
-	public void testIsConnectedValid() {
+	public void testConnected() {
 		boolean isConnected = mapService.isConnected("Boston", "New York");
+		assertTrue(isConnected);
+	}
+	
+	@Test
+	public void testNotConnected() {
+		boolean isConnected = mapService.isConnected("Philadelphia", "Albany");
+		assertFalse(isConnected);
+	}
+	
+	@Test
+	public void testConnectedWithSpaces() {
+		boolean isConnected = mapService.isConnected("Boston   ", "    New York");
+		assertTrue(isConnected);
+	}
+	
+	@Test
+	public void testNotConnectedWithSpaces() {
+		boolean isConnected = mapService.isConnected("  Philadelphia", "Albany  ");
+		assertFalse(isConnected);
+	}
+	
+	@Test
+	public void testConnectedWithCaseSensitive() {
+		boolean isConnected = mapService.isConnected("boston", "new york");
 		assertTrue(isConnected);
 	}
 }
