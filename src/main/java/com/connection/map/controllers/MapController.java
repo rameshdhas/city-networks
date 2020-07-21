@@ -43,7 +43,7 @@ import io.swagger.annotations.ApiOperation;
  */
 @Api(value = "City Connections Map API", description = "REST APIs to check if two cities are connected")
 @RestController
-@RequestMapping("/map")
+@RequestMapping("/")
 public class MapController {
 
 	private Logger log = LoggerFactory.getLogger(MapController.class);
