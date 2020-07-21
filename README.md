@@ -25,8 +25,8 @@ road between those cities.
 
 - **Rest API** - REST end-point available to check two cities are connected.
 - **Speedy Implementation** - Install and run the application in five minutes.
-- **Data Load** - Build your data file (city.txt) with one pair per line, comma separated.
-- **Customizable** - Load your own data and check the city connections.
+- **Data Load** - Loads the data file cities.txt from resources folder during server start.
+- **Customizable** - Build your data file (cities.txt) and check the city connections.
 - **Flexible back-end** - New features can be added in the MapService and exposed as REST end-points.
 
 ### Live Demo
