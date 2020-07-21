@@ -3,9 +3,9 @@
 - [About City Connections](#about-city-connections)
 - [Getting started](#getting-started)
 - [Executing API calls](#executing-api-calls)
-- [FAQ](#faq-)
-- [Swagger](#swagger-)
-- [License](#license-)
+- [FAQ](#faq)
+- [Swagger](#swagger)
+- [License](#license)
 
 ---
 
