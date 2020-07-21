@@ -73,6 +73,13 @@ public class MapService {
 
 		boolean isConnected = false;
 
+		if (origin == null || destination == null) {
+			return isConnected;
+		}
+
+		origin = origin.trim().toLowerCase();
+		destination = destination.trim().toLowerCase();
+
 		if (connectionsMap.containsKey(origin) && connectionsMap.containsKey(destination)) {
 			Set<String> citiesVisited = new HashSet<>();
 			Queue<String> citiesToVisit = new LinkedList<>();
@@ -116,8 +123,8 @@ public class MapService {
 			String line = null;
 			while ((line = reader.readLine()) != null) {
 				String[] cities = line.split(COMMA);
-				String firstCity = cities[0].trim();
-				String secondCity = cities[1].trim();
+				String firstCity = cities[0].trim().toLowerCase();
+				String secondCity = cities[1].trim().toLowerCase();
 
 				if (!connectionsMap.containsKey(firstCity))
 					connectionsMap.put(firstCity, new HashSet<String>());
