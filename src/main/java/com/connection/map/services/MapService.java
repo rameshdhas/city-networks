@@ -21,11 +21,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
@@ -39,10 +37,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
-
-import com.connection.map.constants.Mode;
-import com.connection.map.models.City;
-import com.connection.map.models.Connection;
 
 /**
  * Service class that contains all the service methods for city connections API.
@@ -62,41 +56,7 @@ public class MapService {
 	@Value("${data.file.path}")
 	private String dataFile;
 
-	private List<City> cities = new ArrayList<City>();
-
-	private List<Connection> connections = new ArrayList<Connection>();
-
 	private Map<String, Set<String>> connectionsMap = new HashMap<String, Set<String>>();
-
-	public void addCity(City city) {
-		this.cities.add(city);
-	}
-
-	/**
-	 * 
-	 * @param source
-	 * @param destination
-	 * @param distance
-	 */
-	public void connect(City source, City destination, Mode mode, int distance) {
-		Connection connection = new Connection(source, destination, mode, distance);
-		source.addNeighbor(destination);
-		this.connections.add(connection);
-	}
-
-	/**
-	 * @param source
-	 * @param destination
-	 * @return
-	 */
-	public int getDistance(City origin, City destination) {
-		for (Connection connection : this.connections) {
-			if (connection.getOrigin().equals(origin) && connection.getDestination().equals(destination)) {
-				return connection.getDistance();
-			}
-		}
-		return 0;
-	}
 
 	/**
 	 * Breath first search algorithm to find out if two cities are connected.

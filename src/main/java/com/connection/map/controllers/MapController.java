@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.connection.map.services.MapService;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * Rest controller class that can be used to expose the rest API methods.
@@ -40,7 +41,7 @@ import io.swagger.annotations.Api;
  * @author Ramesh Dhason
  * @since 1.0.0
  */
-@Api
+@Api(value = "City Connections Map API", description = "REST APIs to check if two cities are connected")
 @RestController
 @RequestMapping("/map")
 public class MapController {
@@ -55,6 +56,7 @@ public class MapController {
 	 * 
 	 * @return Set<String>
 	 */
+	@ApiOperation(value = "Get list all supported cities in the system ", response = Set.class)
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public Set<String> listAll() {
 		Set<String> cities = new HashSet<String>();
@@ -73,10 +75,11 @@ public class MapController {
 	 * Rest end-point which returns a boolean value whether the origin and the
 	 * destination cities are connected.
 	 *
-	 * @param origin - origin city name
+	 * @param origin      - origin city name
 	 * @param destination - destination city name
 	 * @return boolean if they both are connected or not
 	 */
+	@ApiOperation(value = "Returns true if two cities or connected, if not returns false", response = String.class)
 	@RequestMapping(value = "/connected", method = RequestMethod.GET)
 	public ResponseEntity<String> isConnected(@RequestParam(name = "origin") String origin,
 			@RequestParam(name = "destination") String destination) {
