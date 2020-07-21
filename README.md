@@ -116,8 +116,8 @@ Restart the application.
 
 Yes! Absolutely.
 
-Currently the API supports, if two cities are connected by using **breath first search (BFS)** algorithm. 
-One nice to have feature is to implement **Dijkstra's shortest path** between two cities.
+The current API uses **breath first search (BFS)** algorithm to check if the cities are connected.
+Another feature request would be to implement **Dijkstra's shortest path** between two cities.
 
 ### Where do I report issues with the city-connections API?
 
