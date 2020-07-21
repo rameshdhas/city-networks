@@ -31,7 +31,7 @@ road between those cities.
 
 ### Live Demo
 
-Checkout the live demo of [City Connections](https://city-connections.herokuapp.com/connected?origin=ny&destination=london).
+Checkout the live demo of [City Connections](https://city-connections.herokuapp.com/connected?origin=Boston&destination=Newark).
 
 Checkout the Swagger documentation at [API Documentation](https://city-connections.herokuapp.com/swagger-ui.html).
 
@@ -83,13 +83,13 @@ Newark, Boston
 Trenton, Albany
 ```
 
-http://localhost:8080/connected?origin=Boston&destination=Newark
+https://city-connections.herokuapp.com/connected?origin=Boston&destination=Newark
 Should return yes
 
-http://localhost:8080/connected?origin=Boston&destination=Philadelphia
+https://city-connections.herokuapp.com/connected?origin=Boston&destination=Philadelphia
 Should return yes
 
-http://localhost:8080/connected?origin=Philadelphia&destination=Albany
+https://city-connections.herokuapp.com/connected?origin=Philadelphia&destination=Albany
 Should return no
 
 ---
