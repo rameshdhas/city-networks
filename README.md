@@ -31,7 +31,7 @@ road between those cities.
 
 ### Live Demo
 
-Checkout the live demo of [City Connections](https://city-connections.herokuapp.com/map/connected?origin=ny&destination=london).
+Checkout the live demo of [City Connections](https://city-connections.herokuapp.com/connected?origin=ny&destination=london).
 
 Checkout the Swagger documentation at [API Documentation](https://city-connections.herokuapp.com/swagger-ui.html).
 

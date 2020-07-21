@@ -72,14 +72,14 @@ public class MapController {
 	}
 
 	/**
-	 * Rest end-point which returns a boolean value whether the origin and the
+	 * Rest end-point which returns a yes or no value whether the origin and the
 	 * destination cities are connected.
 	 *
 	 * @param origin      - origin city name
 	 * @param destination - destination city name
 	 * @return boolean if they both are connected or not
 	 */
-	@ApiOperation(value = "Returns true if two cities or connected, if not returns false", response = String.class)
+	@ApiOperation(value = "Returns yes if two cities or connected, if not returns no", response = String.class)
 	@RequestMapping(value = "/connected", method = RequestMethod.GET)
 	public ResponseEntity<String> isConnected(@RequestParam(name = "origin") String origin,
 			@RequestParam(name = "destination") String destination) {
