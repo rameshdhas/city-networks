@@ -86,9 +86,9 @@ public class MapController {
 		if (log.isDebugEnabled()) {
 			log.debug("Entering isConnected");
 		}
-		boolean isConnected = false;
+		String isConnected = "no";
 		if (!StringUtils.isEmpty(origin) && !StringUtils.isEmpty(destination)) {
-			isConnected = mapService.isConnected(origin, destination);
+			isConnected = mapService.isConnected(origin, destination) ? "yes" : "no";
 		} else {
 			log.error("Invalid input params!");
 			return new ResponseEntity<String>("", HttpStatus.BAD_REQUEST);
