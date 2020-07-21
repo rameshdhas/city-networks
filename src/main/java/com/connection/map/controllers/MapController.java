@@ -81,8 +81,8 @@ public class MapController {
 	 */
 	@ApiOperation(value = "Returns yes if two cities or connected, if not returns no", response = String.class)
 	@RequestMapping(value = "/connected", method = RequestMethod.GET)
-	public ResponseEntity<String> isConnected(@RequestParam(name = "origin") String origin,
-			@RequestParam(name = "destination") String destination) {
+	public ResponseEntity<String> isConnected(@RequestParam(name = "origin", required=false) String origin,
+			@RequestParam(name = "destination", required=false) String destination) {
 		if (log.isDebugEnabled()) {
 			log.debug("Entering isConnected");
 		}
