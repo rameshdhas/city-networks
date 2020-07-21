@@ -74,7 +74,7 @@ The end pont will respond with ‘yes’ if city1 is connected to city2,
 Any unexpected input should result in a ’no’ response.
 
 ### For Example:
-city.txt content is:
+cities.txt content is:
 
 ```csv
 Boston, New York
