@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiOperation;
  * @author Ramesh Dhason
  * @since 1.0.0
  */
-@Api(value = "City Connections Map API", description = "REST APIs to check if two cities are connected")
+@Api(value = "City Connections Map", description = "REST APIs to check if two cities are connected", tags = { "Map Service" })
 @RestController
 @RequestMapping("/")
 public class MapController {
