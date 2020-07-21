@@ -16,10 +16,6 @@
 	<name>city-networks</name>
 	<description>City networks project using Spring Boot</description>
 
-	<properties>
-		<java.version>11</java.version>
-	</properties>
-
 	<dependencies>
 		
 		<dependency>
